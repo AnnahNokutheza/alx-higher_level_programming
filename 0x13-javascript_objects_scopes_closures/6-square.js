@@ -1,19 +1,23 @@
 #!/usr/bin/node
+/**
+ * Square class that inherits from previous square class
+ */
+const PrevSquare = require('./5-square');
 
-// Print function with custom characters to represent the Square
+class Square extends PrevSquare {
+  charPrint (c) {
+    const myChar = c === undefined ? 'X' : c;
+    for (let i = 0; i < this.height; i++) {
+      let myVar = '';
+      let y = 0;
+      while (y < this.width) {
+        myVar += myChar;
+        y++;
+      }
 
-const OldSquare = require('./5-square');
-
-module.exports = class Square extends OldSquare {
-  constructor (size) {
-    super(size, size);
+      console.log(myVar);
+    }
   }
+}
 
-  double () {
-    super.double();
-  }
-
-  charPrint (c = 'X') {
-    super.print(c);
-  }
-};
+module.exports = Square;
