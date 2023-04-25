@@ -1,13 +1,9 @@
 #!/usr/bin/node
 
-# Define the string to write to the file
-string_to_write = "This is the string I want to write to the file."
+const fs = require('fs');
 
-# Ask the user for the file name
-filename = input("Enter the name of the file: ")
-
-# Open the file in write mode
-with open(filename, 'w') as file:
-    # Write the string to the file
-    file.write(string_to_write)
-    print("String written to file!")
+fs.writeFile(process.argv[2], process.argv[3], 'utf8', function (err) {
+  if (err) {
+    console.log(err);
+  }
+});
